@@ -28,5 +28,6 @@ jobs:
         with:
           status: ${{ job.status }}
           device_key: ${{ secrets.BARK_DEVICE_KEY }}
+          level: passive
           bark_server_url: ${{ secrets.BARK_SERVER_URL }}
         if: ${{ github.event_name != 'pull_request' }}
