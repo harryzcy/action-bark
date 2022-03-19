@@ -1,11 +1,44 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'action-bark'
+description: 'You can send push notifications to iOS via Bark'
+author: 'harryzcy'
 inputs:
-  milliseconds: # change this
+  status:
+    description: Specify success or failure or cancelled or custom.
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  on_status:
+    description: |
+      The status on which the notification would be sent.
+      If you specify more than one, separate them by commas.
+      e.g. failure, cancelled
+    required: false
+    default: 'all'
+  title:
+    description: |
+      Specify a custom title of the notification,
+      required if status is set to custom
+    required: false
+    default: ''
+  body:
+    description: |
+      Specify a custom body of the notification,
+      required if status is set to custom
+    required: false
+    default: ''
+  device_key:
+    description: Specify Bark device key of your device
+    required: true
+  level:
+    description: |
+      Specify iOS notification level (default: active)
+    required: false
+    default: active
+  bark_server_url:
+    description: Specify your Bark server URL
+    required: true
+  github_server_url:
+    description: Specify your GitHub Enterprise URL
+    required: false
+    default: github.com
 runs:
   using: 'node16'
   main: 'dist/index.js'
