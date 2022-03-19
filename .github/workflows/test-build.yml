@@ -18,8 +18,8 @@ jobs:
   
     - name: Notification
       uses: ./
-        with:
-          status: ${{ job.status }}
-          device_key: ${{ secrets.BARK_DEVICE_KEY }}
-          bark_server_url: ${{ secrets.BARK_SERVER_URL }}
+      with:
+        status: ${{ job.status }}
+        device_key: ${{ secrets.BARK_DEVICE_KEY }}
+        bark_server_url: ${{ secrets.BARK_SERVER_URL }}
       if: ${{ github.event_name != 'pull_request' }}
