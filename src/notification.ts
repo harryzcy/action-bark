@@ -28,7 +28,7 @@ export function generateNotification(input: NotificationInput): Notification {
 
   let status_word: string
   if (input.status === 'success') status_word = 'succeeded'
-  if (input.status === 'failure') status_word = 'failed'
+  else if (input.status === 'failure') status_word = 'failed'
   else status_word = 'is cancelled'
 
   const body = `Actions #${github.context.runNumber} on ${repo} ${status_word}`
