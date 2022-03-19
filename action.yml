@@ -38,7 +38,7 @@ inputs:
   github_server_url:
     description: Specify your GitHub Enterprise URL
     required: false
-    default: github.com
+    default: https://github.com
 runs:
   using: 'node16'
   main: 'dist/index.js'
