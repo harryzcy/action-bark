@@ -5,6 +5,7 @@ export interface RequestInput {
   title: string
   body: string
   device_key: string
+  level: string
   github_runs_url: string
 }
 
@@ -26,6 +27,7 @@ export async function request(input: RequestInput): Promise<RequestResponse> {
     body: input.body,
     device_key: input.device_key,
     category: 'category',
+    level: input.level,
     url: input.github_runs_url
   })
   return res.data

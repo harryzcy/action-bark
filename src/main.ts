@@ -38,6 +38,7 @@ async function run(): Promise<void> {
       title: notification.title,
       body: notification.body,
       device_key,
+      level,
       github_runs_url: notification.github_runs_url
     })
   } catch (error) {
