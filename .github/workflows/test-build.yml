@@ -1,25 +1,32 @@
 name: test-build
-on: [pull_request, push]
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test:
-    - uses: actions/checkout@v3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-    - name: Setup Node 16.x
-      uses: actions/setup-node@v3
-      with:
-          node-version: 16.x
-      
-    - name: npm install
-      run: npm install
+      - name: Setup Node 16.x
+        uses: actions/setup-node@v3
+        with:
+            node-version: 16.x
+        
+      - name: npm install
+        run: npm install
 
-    - name: Test
-      run: npm all
-  
-    - name: Notification
-      uses: ./
-      with:
-        status: ${{ job.status }}
-        device_key: ${{ secrets.BARK_DEVICE_KEY }}
-        bark_server_url: ${{ secrets.BARK_SERVER_URL }}
-      if: ${{ github.event_name != 'pull_request' }}
+      - name: Test
+        run: npm all
+    
+      - name: Notification
+        uses: ./
+        with:
+          status: ${{ job.status }}
+          device_key: ${{ secrets.BARK_DEVICE_KEY }}
+          bark_server_url: ${{ secrets.BARK_SERVER_URL }}
+        if: ${{ github.event_name != 'pull_request' }}
