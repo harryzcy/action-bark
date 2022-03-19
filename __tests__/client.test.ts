@@ -13,6 +13,7 @@ test('throws invalid number', async () => {
     title: 'title',
     body: 'body',
     device_key: 'device_key',
+    level: 'passive',
     github_runs_url: 'https://example.org'
   })
   expect(spy).toBeCalledTimes(1)
@@ -24,6 +25,7 @@ test('throws invalid number', async () => {
     body: 'body',
     device_key: 'device_key',
     category: 'category',
+    level: 'passive',
     url: 'https://example.org'
   })
 })
