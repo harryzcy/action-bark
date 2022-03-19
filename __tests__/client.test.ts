@@ -6,7 +6,7 @@ test('throws invalid number', async () => {
   const resp_data = { code: 200, message: 'success', timestamp: 1647679056 }
   const spy = jest.spyOn(axios, 'post').mockResolvedValue({
     data: resp_data
-  });
+  })
 
   const data = await client.request({
     server_url: 'https://example.org',
