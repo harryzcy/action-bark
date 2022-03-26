@@ -30,13 +30,13 @@ steps:
     if: always() # Pick up events even if the job fails or is canceled.
 ```
 
-Custom formats:
+Custom title and body:
 
 ```yaml
 steps:
   - uses: harryzcy/action-bark@v1
     with:
-        status: custom
+        status: ${{ job.status }}
         title: custom title
         body: custom body
         device_key: ${{ secrets.BARK_DEVICE_KEY }}

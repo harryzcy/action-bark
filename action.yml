@@ -3,7 +3,7 @@ description: 'You can send push notifications to iOS via Bark'
 author: 'harryzcy'
 inputs:
   status:
-    description: Specify success or failure or cancelled or custom.
+    description: Specify success or failure or cancelled.
     required: true
   on_status:
     description: |

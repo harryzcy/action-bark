@@ -4,7 +4,7 @@ import { generateNotification } from './notification'
 
 async function run(): Promise<void> {
   try {
-    // status: success | failure | cancelled | custom
+    // status: success | failure | cancelled
     const status = core.getInput('status', { required: true }).toLowerCase()
     const on_status = core.getInput('on_status').toLowerCase()
     const title = core.getInput('title')
