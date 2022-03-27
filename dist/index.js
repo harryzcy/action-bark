@@ -33,6 +33,7 @@ function request(input) {
             body: input.body,
             device_key: input.device_key,
             category: 'category',
+            level: input.level,
             url: input.github_runs_url
         });
         return res.data;
@@ -83,7 +84,7 @@ const notification_1 = __nccwpck_require__(7966);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            // status: success | failure | cancelled | custom
+            // status: success | failure | cancelled
             const status = core.getInput('status', { required: true }).toLowerCase();
             const on_status = core.getInput('on_status').toLowerCase();
             const title = core.getInput('title');
@@ -114,6 +115,7 @@ function run() {
                 title: notification.title,
                 body: notification.body,
                 device_key,
+                level,
                 github_runs_url: notification.github_runs_url
             });
         }
@@ -159,23 +161,18 @@ function generateNotification(input) {
     const { repo, owner } = github.context.repo;
     const { runId } = github.context;
     const url = `${input.github_server_url}/${owner}/${repo}/actions/runs/${runId}`;
-    if (input.status === 'custom') {
-        return {
-            title: input.title,
-            body: input.body,
-            github_runs_url: url
-        };
-    }
     let status_word;
     if (input.status === 'success')
         status_word = 'succeeded';
-    if (input.status === 'failure')
+    else if (input.status === 'failure')
         status_word = 'failed';
     else
         status_word = 'is cancelled';
-    const body = `Actions #${github.context.runNumber} on ${repo} ${status_word}`;
+    const title = input.title || 'Github Actions';
+    const body = input.body ||
+        `Actions #${github.context.runNumber} on ${repo} ${status_word}`;
     return {
-        title: 'Github Actions',
+        title,
         body,
         github_runs_url: url
     };
