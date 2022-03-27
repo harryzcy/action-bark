@@ -27,6 +27,7 @@ jobs:
         uses: ./
         with:
           status: ${{ job.status }}
+          title: ${{ secrets.BARK_TITLE }}
           device_key: ${{ secrets.BARK_DEVICE_KEY }}
           level: passive
           bark_server_url: ${{ secrets.BARK_SERVER_URL }}
