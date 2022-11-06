@@ -1,6 +1,6 @@
 {
   "name": "action-bark",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "Push iOS notifications via Bark",
   "main": "lib/main.js",
