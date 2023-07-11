@@ -33,7 +33,7 @@ async function run(): Promise<void> {
       github_server_url
     })
 
-    client.request({
+    await client.request({
       server_url: bark_server_url,
       title: notification.title,
       body: notification.body,
@@ -46,4 +46,4 @@ async function run(): Promise<void> {
   }
 }
 
-run()
+void run()
