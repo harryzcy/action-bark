@@ -30,5 +30,5 @@ export async function request(input: RequestInput): Promise<RequestResponse> {
     level: input.level,
     url: input.github_runs_url
   })
-  return res.data
+  return res.data as RequestResponse
 }
