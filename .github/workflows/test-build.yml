@@ -2,27 +2,27 @@ name: test-build
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node 16.x
         uses: actions/setup-node@v3
         with:
-            node-version: 16.x
-        
+          node-version: 16.x
+
       - name: npm install
         run: npm install
 
       - name: Test
         run: npm run all
-    
+
       - name: Notification
         uses: ./
         with:
