@@ -40,7 +40,7 @@ inputs:
     required: false
     default: https://github.com
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: alert-octagon
