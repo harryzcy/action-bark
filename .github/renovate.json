@@ -1,6 +1,8 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    ":disableDependencyDashboard",
+    ":automergeMinor"
   ],
   "labels": ["dependencies"],
   "packageRules": [
