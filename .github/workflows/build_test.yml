@@ -12,6 +12,7 @@ on:
 
 jobs:
   test:
+    name: Build & Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
