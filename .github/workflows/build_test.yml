@@ -1,16 +1,22 @@
-name: test-build
+name: Build & Test
 
 on:
   push:
-    branches: [main]
+    branches:
+      - "**"
+    tags-ignore:
+      - "v*"
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   test:
+    name: Build & Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
