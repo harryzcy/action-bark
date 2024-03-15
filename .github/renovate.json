@@ -1,19 +1,37 @@
 {
   "extends": [
-    "config:base",
+    "config:best-practices",
     ":disableDependencyDashboard",
     ":automergeMinor"
   ],
-  "labels": ["dependencies"],
+  "labels": [
+    "dependencies"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "labels": [
+      "dependencies",
+      "skip-changelog"
+    ]
+  },
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true
     },
     {
-      "matchDepTypes": ["devDependencies"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
       "automerge": true
     }
+  ],
+  "postUpdateOptions": [
+    "npmDedupe"
   ]
 }
-
