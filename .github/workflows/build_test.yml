@@ -3,9 +3,9 @@ name: Build & Test
 on:
   push:
     branches:
-      - "**"
+      - '**'
     tags-ignore:
-      - "v*"
+      - 'v*'
   pull_request:
     branches:
       - main
@@ -31,10 +31,10 @@ jobs:
 
       - name: Notification
         uses: ./
+        if: ${{ github.actor != 'dependabot[bot]' && github.event_name != 'pull_request' }}
         with:
           status: ${{ job.status }}
           title: ${{ secrets.BARK_TITLE }}
           device_key: ${{ secrets.BARK_DEVICE_KEY }}
           level: passive
           bark_server_url: ${{ secrets.BARK_SERVER_URL }}
-        if: ${{ github.event_name != 'pull_request' }}
