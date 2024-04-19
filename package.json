@@ -30,9 +30,9 @@
     "axios": "1.6.8"
   },
   "devDependencies": {
-    "@types/node": "20.12.4",
-    "@typescript-eslint/eslint-plugin": "7.5.0",
-    "@typescript-eslint/parser": "7.5.0",
+    "@types/node": "20.12.7",
+    "@typescript-eslint/eslint-plugin": "7.7.0",
+    "@typescript-eslint/parser": "7.7.0",
     "@vercel/ncc": "0.38.1",
     "eslint": "8.57.0",
     "eslint-plugin-github": "4.10.2",
@@ -40,6 +40,6 @@
     "js-yaml": "4.1.0",
     "prettier": "3.2.5",
     "ts-jest": "29.1.2",
-    "typescript": "5.4.4"
+    "typescript": "5.4.5"
   }
 }
