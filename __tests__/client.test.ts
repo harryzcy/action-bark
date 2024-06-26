@@ -26,6 +26,13 @@ test('throws invalid number', async () => {
     device_key: 'device_key',
     category: 'category',
     level: 'passive',
+    badge: null,
+    automatically_copy: null,
+    copy: null,
+    sound: null,
+    icon: null,
+    group: null,
+    is_archive: null,
     url: 'https://example.org'
   })
 })

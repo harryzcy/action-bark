@@ -11,6 +11,14 @@ async function run(): Promise<void> {
     const body = core.getInput('body')
     const device_key = core.getInput('device_key', { required: true })
     const level = core.getInput('level')
+    const badge = core.getInput('badge')
+    const automatically_copy = core.getInput('automatically_copy')
+    const copy = core.getInput('copy')
+    const sound = core.getInput('sound')
+    const icon = core.getInput('icon')
+    const group = core.getInput('group')
+    const is_archive = core.getInput('is_archive')
+    const url = core.getInput('url')
     const bark_server_url = core.getInput('bark_server_url', { required: true })
     const github_server_url = core.getInput('github_server_url')
 
@@ -20,6 +28,14 @@ async function run(): Promise<void> {
     core.debug(`body: ${body}`)
     core.debug(`device_key: ${device_key}`)
     core.debug(`level: ${level}`)
+    core.debug(`badge: ${badge}`)
+    core.debug(`automatically_copy: ${automatically_copy}`)
+    core.debug(`copy: ${copy}`)
+    core.debug(`sound: ${sound}`)
+    core.debug(`icon: ${icon}`)
+    core.debug(`group: ${group}`)
+    core.debug(`is_archive: ${is_archive}`)
+    core.debug(`url: ${url}`)
     core.debug(`bark_server_url: ${bark_server_url}`)
     core.debug(`github_server_url: ${github_server_url}`)
 
@@ -39,6 +55,14 @@ async function run(): Promise<void> {
       body: notification.body,
       device_key,
       level,
+      badge,
+      automatically_copy,
+      copy,
+      sound,
+      icon,
+      group,
+      is_archive,
+      url,
       github_runs_url: notification.github_runs_url
     })
   } catch (error) {
