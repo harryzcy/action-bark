@@ -6,14 +6,14 @@ export interface RequestInput {
   body: string
   device_key: string
   level: string
-  badge: string | null
-  automatically_copy: string | null
-  copy: string | null
-  sound: string | null
-  icon: string | null
-  group: string | null
-  is_archive: string | null
-  url: string | null
+  badge?: string
+  automatically_copy?: string
+  copy?: string
+  sound?: string
+  icon?: string
+  group?: string
+  is_archive?: string
+  url?: string
   github_runs_url: string
 }
 
