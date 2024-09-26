@@ -1,14 +1,15 @@
 {
   "name": "action-bark",
   "version": "2.1.0",
+  "type": "module",
   "private": true,
   "description": "Push iOS notifications via Bark",
   "main": "lib/main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.release.json",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
-    "lint": "eslint src/**/*.ts",
+    "lint": "eslint",
     "package": "ncc build --source-map --license licenses.txt",
     "test": "jest",
     "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
@@ -30,16 +31,17 @@
     "axios": "1.7.7"
   },
   "devDependencies": {
+    "@eslint/js": "^9.11.1",
     "@types/node": "20.16.9",
     "@typescript-eslint/eslint-plugin": "8.7.0",
     "@typescript-eslint/parser": "8.7.0",
     "@vercel/ncc": "0.38.2",
-    "eslint": "8.57.1",
-    "eslint-plugin-github": "5.0.2",
+    "eslint": "9.8.0",
     "jest": "29.7.0",
     "js-yaml": "4.1.0",
     "prettier": "3.3.3",
     "ts-jest": "29.2.5",
-    "typescript": "5.6.2"
+    "typescript": "5.6.2",
+    "typescript-eslint": "8.0.0"
   }
 }
