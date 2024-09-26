@@ -3,7 +3,7 @@
     "target": "ESNEXT",
     "module": "commonjs",
     "outDir": "./lib",
-    "rootDir": ".",
+    "rootDir": "./src",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true
