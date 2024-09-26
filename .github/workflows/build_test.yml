@@ -23,8 +23,11 @@ jobs:
         with:
           node-version: latest
 
-      - name: npm install
+      - name: Install
         run: npm install
+
+      - name: Lint
+        run: npm run lint
 
       - name: Test
         run: npm run all
