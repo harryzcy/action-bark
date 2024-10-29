@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.13.0",
-    "@types/node": "22.8.2",
+    "@types/node": "22.8.4",
     "@typescript-eslint/eslint-plugin": "8.12.1",
     "@typescript-eslint/parser": "8.12.1",
     "@vercel/ncc": "0.38.2",
