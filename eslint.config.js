@@ -13,7 +13,7 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        project: true,
+        project: ['./tsconfig.lint.json'],
         tsconfigRootDir: import.meta.dirname,
         ecmaVersion: 9
       }
