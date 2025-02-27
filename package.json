@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "description": "Push iOS notifications via Bark",
-  "main": "lib/main.js",
+  "main": "bin/main.js",
   "scripts": {
     "build": "tsc -p tsconfig.release.json",
     "format": "prettier --write '**/*.ts'",
