@@ -10,7 +10,7 @@
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "eslint",
-    "package": "ncc build --source-map --license licenses.txt",
+    "package": "ncc build --source-map --target es2020 --license licenses.txt",
     "test": "jest",
     "all": "npm run format && npm run lint && npm run build && npm run package && npm test"
   },
