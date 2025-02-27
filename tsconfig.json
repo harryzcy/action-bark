@@ -1,12 +1,10 @@
 {
+  "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
-    "target": "ESNEXT",
-    "module": "commonjs",
-    "outDir": "./lib",
-    "rootDir": "./src",
-    "strict": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true
+    "outDir": "bin",
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
   },
+  "include": ["src", "prettier.config.mjs"],
   "exclude": ["node_modules"]
 }
