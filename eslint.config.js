@@ -5,7 +5,7 @@ import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
-    ignores: ['dist/', 'lib/', 'node_modules/', '*.config.js']
+    ignores: ['dist/', 'bin/', 'node_modules/', '*.config.js']
   },
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
@@ -13,7 +13,7 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        project: true,
+        project: ['./tsconfig.lint.json'],
         tsconfigRootDir: import.meta.dirname,
         ecmaVersion: 9
       }
