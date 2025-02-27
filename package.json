@@ -28,6 +28,7 @@
   "dependencies": {
     "@actions/core": "1.11.1",
     "@actions/github": "6.0.0",
+    "@tsconfig/node-lts": "^22.0.1",
     "axios": "1.8.1"
   },
   "devDependencies": {
