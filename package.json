@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "description": "Push iOS notifications via Bark",
-  "main": "bin/main.js",
+  "main": "bin/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.release.json",
     "format": "prettier --write '**/*.ts'",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@eslint/js": "9.21.0",
     "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "@tsconfig/node-lts": "^22.0.1",
