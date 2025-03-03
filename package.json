@@ -37,7 +37,7 @@
     "@rollup/plugin-node-resolve": "16.0.0",
     "@rollup/plugin-typescript": "12.1.2",
     "@tsconfig/node-lts": "22.0.1",
-    "@types/node": "22.13.8",
+    "@types/node": "22.13.9",
     "@typescript-eslint/eslint-plugin": "8.26.0",
     "@typescript-eslint/parser": "8.26.0",
     "eslint": "9.21.0",
