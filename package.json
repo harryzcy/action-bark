@@ -28,7 +28,7 @@
   "dependencies": {
     "@actions/core": "1.11.1",
     "@actions/github": "6.0.0",
-    "axios": "1.8.3"
+    "axios": "1.8.4"
   },
   "devDependencies": {
     "@eslint/js": "9.22.0",
