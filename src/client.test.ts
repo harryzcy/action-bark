@@ -16,7 +16,7 @@ test('throws invalid number', async () => {
     level: 'passive',
     github_runs_url: 'https://example.org'
   })
-  expect(spy).toBeCalledTimes(1)
+  expect(spy).toHaveBeenCalledTimes(1)
   expect(data).toBe(resp_data)
 
   expect(spy.mock.calls[0][0]).toBe('https://example.org/push')
