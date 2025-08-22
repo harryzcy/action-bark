@@ -31,7 +31,7 @@
     "axios": "1.11.0"
   },
   "devDependencies": {
-    "@eslint/js": "9.33.0",
+    "@eslint/js": "9.34.0",
     "@rollup/plugin-commonjs": "28.0.6",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "16.0.1",
@@ -40,7 +40,7 @@
     "@types/node": "22.17.2",
     "@typescript-eslint/eslint-plugin": "8.40.0",
     "@typescript-eslint/parser": "8.40.0",
-    "eslint": "9.33.0",
+    "eslint": "9.34.0",
     "jest": "30.0.5",
     "prettier": "3.6.2",
     "rollup": "4.47.1",
