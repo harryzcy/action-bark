@@ -35,7 +35,7 @@
     "@rollup/plugin-commonjs": "28.0.8",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "16.0.3",
-    "@rollup/plugin-typescript": "12.2.0",
+    "@rollup/plugin-typescript": "12.3.0",
     "@tsconfig/node-lts": "22.0.2",
     "@types/node": "22.18.12",
     "@typescript-eslint/eslint-plugin": "8.46.2",
