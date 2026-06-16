@@ -1,10 +1,10 @@
 import axios from 'axios'
 import * as client from '../src/client'
-import { expect, test, jest } from '@jest/globals'
+import { expect, test, vi } from 'vitest'
 
 test('throws invalid number', async () => {
   const resp_data = { code: 200, message: 'success', timestamp: 1647679056 }
-  const spy = jest.spyOn(axios, 'post').mockResolvedValue({
+  const spy = vi.spyOn(axios, 'post').mockResolvedValue({
     data: resp_data
   })
 
