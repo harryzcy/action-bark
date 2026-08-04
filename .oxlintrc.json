@@ -3,9 +3,9 @@
   "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "node"],
   "categories": {
     "correctness": "error",
-    "suspicious": "warn",
+    "suspicious": "error",
     "pedantic": "warn",
-    "perf": "warn",
+    "perf": "error",
     "style": "warn"
   },
   "options": {
