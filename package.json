@@ -6,13 +6,13 @@
   "description": "Push iOS notifications via Bark",
   "main": "bin/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.release.json",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "oxlint",
     "package": "npx rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "test": "vitest",
-    "all": "npm run format && npm run lint && npm run build && npm run package && npm test"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "all": "npm run format && npm run lint && npm run typecheck && npm run package && npm test"
   },
   "repository": {
     "type": "git",
