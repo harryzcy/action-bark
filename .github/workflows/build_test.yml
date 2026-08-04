@@ -11,6 +11,31 @@ on:
       - main
 
 jobs:
+  version:
+    name: Check README version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Compare README pins against package.json
+        run: |
+          version=$(node -p "require('./package.json').version")
+          refs=$(grep -oE 'harryzcy/action-bark@[^ ]+' README.md | sed 's/.*@//' | sort -u)
+
+          if [ -z "$refs" ]; then
+            echo "::error::README.md has no harryzcy/action-bark@<version> reference"
+            exit 1
+          fi
+
+          if [ "$refs" != "v$version" ]; then
+            echo "::error::README.md pins $(echo $refs | tr '\n' ' ')but package.json is $version"
+            grep -n 'harryzcy/action-bark@' README.md
+            exit 1
+          fi
+
+          echo "README.md pins v$version, matching package.json"
+
   test:
     name: Build & Test
     runs-on: ubuntu-latest
