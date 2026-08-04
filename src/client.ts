@@ -23,7 +23,9 @@ export interface RequestResponse {
   timestamp: number
 }
 
-export async function request(input: RequestInput): Promise<RequestResponse> {
+export async function request(
+  input: Readonly<RequestInput>
+): Promise<RequestResponse> {
   let url = input.server_url
   if (!url.endsWith('/')) {
     url += '/'

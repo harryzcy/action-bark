@@ -2,67 +2,83 @@ import * as client from './client'
 import * as core from '@actions/core'
 import { generateNotification } from './notification'
 
+interface Inputs {
+  status: string
+  on_status: string
+  title: string
+  body: string
+  device_key: string
+  level: string
+  badge: string
+  automatically_copy: string
+  copy: string
+  sound: string
+  icon: string
+  group: string
+  is_archive: string
+  url: string
+  bark_server_url: string
+  github_server_url: string
+}
+
+function readInputs(): Inputs {
+  return {
+    // status: success | failure | cancelled
+    status: core.getInput('status', { required: true }).toLowerCase(),
+    on_status: core.getInput('on_status').toLowerCase(),
+    title: core.getInput('title'),
+    body: core.getInput('body'),
+    device_key: core.getInput('device_key', { required: true }),
+    level: core.getInput('level'),
+    badge: core.getInput('badge'),
+    automatically_copy: core.getInput('automatically_copy'),
+    copy: core.getInput('copy'),
+    sound: core.getInput('sound'),
+    icon: core.getInput('icon'),
+    group: core.getInput('group'),
+    is_archive: core.getInput('is_archive'),
+    url: core.getInput('url'),
+    bark_server_url: core.getInput('bark_server_url', { required: true }),
+    github_server_url: core.getInput('github_server_url')
+  }
+}
+
+function debugInputs(inputs: Readonly<Inputs>): void {
+  for (const [name, value] of Object.entries(inputs)) {
+    core.debug(`${name}: ${value}`)
+  }
+}
+
 async function run(): Promise<void> {
   try {
-    // status: success | failure | cancelled
-    const status = core.getInput('status', { required: true }).toLowerCase()
-    const on_status = core.getInput('on_status').toLowerCase()
-    const title = core.getInput('title')
-    const body = core.getInput('body')
-    const device_key = core.getInput('device_key', { required: true })
-    const level = core.getInput('level')
-    const badge = core.getInput('badge')
-    const automatically_copy = core.getInput('automatically_copy')
-    const copy = core.getInput('copy')
-    const sound = core.getInput('sound')
-    const icon = core.getInput('icon')
-    const group = core.getInput('group')
-    const is_archive = core.getInput('is_archive')
-    const url = core.getInput('url')
-    const bark_server_url = core.getInput('bark_server_url', { required: true })
-    const github_server_url = core.getInput('github_server_url')
+    const inputs = readInputs()
+    debugInputs(inputs)
 
-    core.debug(`status: ${status}`)
-    core.debug(`on_status: ${on_status}`)
-    core.debug(`title: ${title}`)
-    core.debug(`body: ${body}`)
-    core.debug(`device_key: ${device_key}`)
-    core.debug(`level: ${level}`)
-    core.debug(`badge: ${badge}`)
-    core.debug(`automatically_copy: ${automatically_copy}`)
-    core.debug(`copy: ${copy}`)
-    core.debug(`sound: ${sound}`)
-    core.debug(`icon: ${icon}`)
-    core.debug(`group: ${group}`)
-    core.debug(`is_archive: ${is_archive}`)
-    core.debug(`url: ${url}`)
-    core.debug(`bark_server_url: ${bark_server_url}`)
-    core.debug(`github_server_url: ${github_server_url}`)
-
-    const on_status_all = on_status.split(',').map(e => e.trim())
-    if (!on_status_all.includes(status) && on_status !== 'all') return
+    const on_status_all = inputs.on_status.split(',').map(e => e.trim())
+    if (!on_status_all.includes(inputs.status) && inputs.on_status !== 'all')
+      return
 
     const notification = generateNotification({
-      status,
-      title,
-      body,
-      github_server_url
+      status: inputs.status,
+      title: inputs.title,
+      body: inputs.body,
+      github_server_url: inputs.github_server_url
     })
 
     await client.request({
-      server_url: bark_server_url,
+      server_url: inputs.bark_server_url,
       title: notification.title,
       body: notification.body,
-      device_key,
-      level,
-      badge,
-      automatically_copy,
-      copy,
-      sound,
-      icon,
-      group,
-      is_archive,
-      url,
+      device_key: inputs.device_key,
+      level: inputs.level,
+      badge: inputs.badge,
+      automatically_copy: inputs.automatically_copy,
+      copy: inputs.copy,
+      sound: inputs.sound,
+      icon: inputs.icon,
+      group: inputs.group,
+      is_archive: inputs.is_archive,
+      url: inputs.url,
       github_runs_url: notification.github_runs_url
     })
   } catch (error) {
@@ -70,4 +86,4 @@ async function run(): Promise<void> {
   }
 }
 
-void run()
+await run()

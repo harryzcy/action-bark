@@ -4,7 +4,7 @@
   "categories": {
     "correctness": "error",
     "suspicious": "error",
-    "pedantic": "warn",
+    "pedantic": "error",
     "perf": "error",
     "style": "warn"
   },
