@@ -6,7 +6,7 @@ Allow GitHub Actions to push iOS notifications via Bark
 
 ```yaml
 steps:
-  - uses: harryzcy/action-bark@v1
+  - uses: harryzcy/action-bark@v2.4.0
     with:
         status: ${{ job.status }}
         device_key: ${{ secrets.BARK_DEVICE_KEY }}
@@ -20,7 +20,7 @@ More controls over notifications:
 
 ```yaml
 steps:
-  - uses: harryzcy/action-bark@v1
+  - uses: harryzcy/action-bark@v2.4.0
     with:
         status: ${{ job.status }}
         on_status: failure, cancelled # only run on these status
@@ -34,7 +34,7 @@ Custom title and body:
 
 ```yaml
 steps:
-  - uses: harryzcy/action-bark@v1
+  - uses: harryzcy/action-bark@v2.4.0
     with:
         status: ${{ job.status }}
         title: custom title
@@ -49,7 +49,7 @@ steps:
 
 ```yaml
 steps:
-  - uses: harryzcy/action-bark@v1
+  - uses: harryzcy/action-bark@v2.4.0
     with:
         status: ${{ job.status }}
         device_key: ${{ secrets.BARK_DEVICE_KEY }}
