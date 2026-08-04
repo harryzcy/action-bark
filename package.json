@@ -6,7 +6,7 @@
   "description": "Push iOS notifications via Bark",
   "main": "bin/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.release.json",
+    "build": "tsc --noEmit -p tsconfig.release.json",
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "oxlint",
