@@ -1,6 +1,6 @@
 {
   "name": "action-bark",
-  "version": "2.3.4",
+  "version": "2.4.0",
   "type": "module",
   "private": true,
   "description": "Push iOS notifications via Bark",
