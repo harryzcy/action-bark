@@ -2,7 +2,7 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "node"],
   "categories": {
-    "correctness": "warn",
+    "correctness": "error",
     "suspicious": "warn",
     "pedantic": "warn",
     "perf": "warn",
