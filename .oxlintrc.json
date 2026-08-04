@@ -8,6 +8,9 @@
     "perf": "warn",
     "style": "warn"
   },
+  "options": {
+    "typeAware": true
+  },
   "ignorePatterns": ["dist/", "bin/", "node_modules/"],
   "overrides": [
     {
