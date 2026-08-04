@@ -9,7 +9,7 @@
     "format": "prettier --write '**/*.ts'",
     "format-check": "prettier --check '**/*.ts'",
     "lint": "oxlint",
-    "package": "npx rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "package": "rolldown --config rolldown.config.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "all": "npm run format && npm run lint && npm run typecheck && npm run package && npm test"
@@ -31,17 +31,12 @@
     "axios": "1.19.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "29.0.3",
-    "@rollup/plugin-json": "6.1.0",
-    "@rollup/plugin-node-resolve": "16.0.3",
-    "@rollup/plugin-typescript": "12.3.0",
     "@tsconfig/node-lts": "24.0.0",
     "@types/node": "24.13.3",
     "oxlint": "1.77.0",
     "oxlint-tsgolint": "7.0.2001",
     "prettier": "3.9.6",
-    "rollup": "4.62.3",
-    "tslib": "2.8.1",
+    "rolldown": "1.2.2",
     "typescript": "6.0.3",
     "vitest": "4.1.10"
   }
