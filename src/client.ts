@@ -23,14 +23,16 @@ export interface RequestResponse {
   timestamp: number
 }
 
-export async function request(input: RequestInput): Promise<RequestResponse> {
+export async function request(
+  input: Readonly<RequestInput>
+): Promise<RequestResponse> {
   let url = input.server_url
   if (!url.endsWith('/')) {
     url += '/'
   }
   url += 'push'
 
-  const res = await axios.post(url, {
+  const res = await axios.post<RequestResponse>(url, {
     title: input.title,
     body: input.body,
     device_key: input.device_key,
@@ -45,5 +47,5 @@ export async function request(input: RequestInput): Promise<RequestResponse> {
     is_archive: input.is_archive ?? null,
     url: input.url ?? input.github_runs_url
   })
-  return res.data as RequestResponse
+  return res.data
 }

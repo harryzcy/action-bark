@@ -13,7 +13,9 @@ interface Notification {
   github_runs_url: string
 }
 
-export function generateNotification(input: NotificationInput): Notification {
+export function generateNotification(
+  input: Readonly<NotificationInput>
+): Notification {
   const { repo, owner } = github.context.repo
   const { runId } = github.context
   const url = `${input.github_server_url}/${owner}/${repo}/actions/runs/${runId.toString()}`
