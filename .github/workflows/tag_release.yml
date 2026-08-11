@@ -1,0 +1,42 @@
+name: Tag Release
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  tag:
+    name: Tag Release
+    if: github.event.pull_request.merged && startsWith(github.event.pull_request.head.ref, 'release/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # Pushing the tag with RELEASE_TOKEN is what triggers release.yml.
+      # A tag pushed with GITHUB_TOKEN would not start another workflow run,
+      # and the GitHub Release would have to be created by hand.
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          token: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Push tag
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          version="${HEAD_REF#release/}"
+          expected="v$(node -p "require('./package.json').version")"
+
+          if [ "$version" != "$expected" ]; then
+            echo "::error::Branch $HEAD_REF does not match package.json ($expected)"
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git tag "$version"
+          git push origin "$version"
