@@ -38,6 +38,6 @@
     "prettier": "3.9.6",
     "rolldown": "1.2.8",
     "typescript": "7.0.2",
-    "vitest": "5.0.0"
+    "vitest": "5.0.1"
   }
 }
