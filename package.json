@@ -35,7 +35,7 @@
     "@types/node": "24.13.5",
     "oxlint": "1.83.0",
     "oxlint-tsgolint": "7.0.2001",
-    "prettier": "3.9.7",
+    "prettier": "3.9.8",
     "rolldown": "1.2.9",
     "typescript": "7.0.2",
     "vitest": "5.0.1"
