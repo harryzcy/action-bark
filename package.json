@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@tsconfig/node-lts": "24.0.1",
-    "@types/node": "24.13.6",
+    "@types/node": "24.19.0",
     "oxlint": "1.85.0",
     "oxlint-tsgolint": "7.0.2003",
     "prettier": "3.9.9",
