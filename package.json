@@ -36,7 +36,7 @@
     "oxlint": "1.87.0",
     "oxlint-tsgolint": "7.0.2003",
     "prettier": "3.9.9",
-    "rolldown": "1.2.12",
+    "rolldown": "1.2.13",
     "typescript": "7.0.2",
     "vitest": "5.0.3"
   }
