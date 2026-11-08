@@ -34,7 +34,7 @@
     "@tsconfig/node-lts": "24.0.1",
     "@types/node": "26.6.6",
     "oxlint": "1.91.0",
-    "oxlint-tsgolint": "7.0.2005",
+    "oxlint-tsgolint": "7.0.2006",
     "prettier": "3.9.10",
     "rolldown": "1.2.16",
     "typescript": "7.0.2",
